@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bank app title</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Bank Application for Brand New Day Challenge</h1>
+    <hr/>
+    <h3>Admin display list of account user</h3>
+    <table id="displaytable">
+        <tr>
+            <th>Acc. Number</th>
+            <th>Acc. Name</th>
+            <th>Balance</th>
+            <th>Fee</th>
+            <th>IBAN * <br/>(Show for demo purpose)</th>
+            <th>Command</th>
+            <th>Transfer</th>
+            <th>Delete</th>
+        </tr>
+        <tbody id="bankaccountsbody">
+
+        </tbody>
+    </table>
+    <hr/>
+    <div id="transferform">
+        <h3>Transfer To</h3>
+        <form action="javascript:void(0);" onsubmit="transferItem()" >
+            <input type="hidden" id="ownerid"/>
+            <select name="lstIBAN" id="lstIBAN"/>
+            <input type="text" id="edit-amount" placeholder="Input amount"/>
+            <input type="submit" value="Save"/>
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+    <hr/>
+    generate iban refer to <a href="http://randomiban.com/?country=Netherlands">Iban generator</a>
+    
+    <h3>Add Customer</h3>
+     
+     <div>
+        <label>Account Number :</label>
+        <input id="txtAcctNumber" type="text" placeholder="Input Account Number" />
+     </div>
+     <div>
+        <label>Account Name :</label>
+        <input id="txtAcctName" type="text" placeholder="Input Account Name" />
+     </div>
+     <div>
+        <label>IBAN : </label>
+        <input type="text" id="txtIBAN" placeholder="IBAN Number" />
+        <a href="http://randomiban.com/?country=Netherlands">Get IBAN from random</a>
+      </div>
+      <input type="button" value="submit" onclick="AddCustomer()"/>
+     
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            getItems();
+        });
+
+        
+    </script>
+</body>
+</html>
